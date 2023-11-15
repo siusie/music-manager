@@ -1,6 +1,6 @@
-_TODO_: create a new repo and move this to it
+# Music Manager
 
-This is a full-stack web application for managing songs and albums. Registered users can add songs or podcasts and listen to them. I created this application to practice back-end development. I wanted to build a simple CRUD app to the best of my current programming skills.
+Music Manager is a full-stack web application for managing songs and albums. Registered users can add songs or podcasts and listen to them. I created this application to practice back-end development. I wanted to build a simple CRUD app to the best of my current programming skills.
 
 ## 🌌 Example live site
 
