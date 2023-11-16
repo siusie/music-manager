@@ -53,7 +53,6 @@ var Genre = sequelize.define('Genre', {
 Song.belongsTo(Album, {foreignKey: 'albumID'})
 Album.belongsTo(Genre, {foreignKey: 'genreID'})
 
-
 module.exports.initialize = () => {
     return new Promise((resolve, reject) => {
         sequelize.sync().then(() => {
@@ -63,7 +62,6 @@ module.exports.initialize = () => {
           console.log("POSTGRES CONNECTION FAILED, ERROR: "+err)
         })
     })
-
 }
 
 module.exports.getAlbums = () => {
@@ -71,7 +69,7 @@ module.exports.getAlbums = () => {
         Album.findAll().then((data) => {
           resolve(data)
         }).catch((err) => {
-          console.log(error)
+          console.log(err)
           reject("Albums not available")
         })
     })
@@ -86,7 +84,7 @@ module.exports.getAlbumById = (albumID) => {
       }).then((data) => {
         resolve(data)
       }).catch((err) => {
-        console.log(error)
+        console.log(err)
         reject("Albums not available")
       })
     })
@@ -101,7 +99,7 @@ module.exports.getAlbumsByGenre = (genreID) => {
         }).then((data) => {
           resolve(data)
         }).catch((err) => {
-          console.log(error)
+          console.log(err)
           reject("Albums not available")
         })
     })
@@ -112,7 +110,7 @@ module.exports.getGenres = () => {
         Genre.findAll().then((data) => {
           resolve(data)
         }).catch((err) => {
-          console.log(error)
+          console.log(err)
           reject("Genres not available")
         })
     })
@@ -129,7 +127,6 @@ module.exports.addAlbum = (album) => {
         })
     })
 }
-
 
 module.exports.addGenre = (genre) => {
   return new Promise((resolve, reject) => {
@@ -226,6 +223,5 @@ module.exports.deleteSong = (songID) => {
       }).catch((err) => {
         reject("SONG NOT FOUND!")
       })
-
   })
 }
