@@ -41,8 +41,8 @@ app.use(express.static("public"));
 app.use(clientSessions({
   cookieName: "session",
   secret: "musicapp",
-  duration: 2 * 60 * 1000,
-  activeDuration: 60 * 1000
+  duration: 60 * 60 * 1000,
+  activeDuration: 60 * 60 * 1000
 }))
 
 function ensureLogin(req, res, next) {
