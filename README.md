@@ -12,7 +12,7 @@ TBA
 
 ### Creating an account
 
-![image](https://github.com/siusie/music-music-music/assets/93149998/e661e25e-ca5f-4a4e-a81b-152ef7b4d9b4)
+![282943033-e661e25e-ca5f-4a4e-a81b-152ef7b4d9b4](https://github.com/siusie/music-manager/assets/93149998/9e29ffb9-d8de-4c89-8127-a5c603015679)
 
 ## Requirement
 
