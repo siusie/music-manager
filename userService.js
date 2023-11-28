@@ -68,12 +68,12 @@ module.exports.loginUser = function(userData) {
     .exec()
     .then((user) => {
       if(!user) {
-        reject("UNABLE TO FIND USER: "+userData.username)
+        reject("UNABLE TO FIND USER: " + userData.username);
       } else {
         bcryptjs.compare(userData.password, user.password).then((result) => {
           if (result === true) {
             // save session stuff
-            console.log(user)
+            console.log(`user is logged in`)
             user.loginHistory.push({dateTime: new Date(), userAgent: userData.userAgent})
             
             User.updateOne({ username: user.username}, 
