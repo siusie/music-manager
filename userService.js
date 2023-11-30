@@ -1,9 +1,9 @@
-var mongoose = require("mongoose")
-var Schema = mongoose.Schema
+var mongoose = require("mongoose");
+var Schema = mongoose.Schema;
 const bcryptjs = require('bcryptjs');
 
-const env = require("dotenv")
-env.config()
+const env = require("dotenv");
+env.config();
 
 var userSchema = new Schema({
   "username": {
@@ -18,7 +18,7 @@ var userSchema = new Schema({
   }]
 })
 
-let User
+let User;
 
 module.exports.initialize = function () {
   return new Promise((resolve, reject) => {
@@ -62,7 +62,7 @@ module.exports.registerUser = function (userData) {
   })
 }
 
-module.exports.loginUser = function(userData) {
+module.exports.loginUser = (userData) => {
   return new Promise((resolve, reject) => {
     User.findOne({username: userData.username})
     .exec()
@@ -73,14 +73,16 @@ module.exports.loginUser = function(userData) {
         bcryptjs.compare(userData.password, user.password).then((result) => {
           if (result === true) {
             // save session stuff
-            console.log(`user is logged in`)
-            user.loginHistory.push({dateTime: new Date(), userAgent: userData.userAgent})
+
+            console.log(`userService.js - user is logged in`);
+            
+            user.loginHistory.push({ dateTime: new Date(), userAgent: userData.userAgent });
             
             User.updateOne({ username: user.username}, 
               { $set: { loginHistory: user.loginHistory}}
             ).exec()
             .then(() => {
-              resolve(user)
+              resolve(user);
             }).catch((err) => {
               reject("ERROR UPDATING USER'S LOGIN HISTORY!")
             })
@@ -88,7 +90,7 @@ module.exports.loginUser = function(userData) {
             reject("PASSWORD WAS INCORRECT!")
           }
         }).catch((error) => {
-          reject("UNABLE TO DECRYPT PASSWORD!")
+          reject("UNABLE TO DECRYPT PASSWORD! ");
         })
       }
     })
