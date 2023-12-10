@@ -27,7 +27,7 @@ TBA
 
 ## Local Development
 
-1. Clone this repo - `git clone https://github.com/siusie/music-music-music.git`
+1. Clone this repo - `git clone https://github.com/siusie/music-manager.git`
 2. Copy `sample.env` to `.env` and customize as needed with Cloudinary API keys - `cp sample.env .env`
 3. Install npm packages in root directory - `npm install`
 4. Run the express server - `nodemon server.js`
